@@ -1,0 +1,139 @@
+@model Dictionary<string, List<RoommateManager.Module.Controllers.ActivityViewModel>>
+
+@{
+    ViewData["Title"] = "My Activities";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Roommate Manager</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        .navbar {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Roommate Manager</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-controller="Activity" asp-action="MyActivities">My Activities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Activity" asp-action="History">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Note" asp-action="Index">Notes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Grocery" asp-action="Index">Grocery</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>@ViewData["Title"]</h1>
+        <p>Mark activities as completed to track your household chores.</p>
+        <a asp-controller="Activity" asp-action="Create" class="btn btn-primary">
+            Add Activity
+        </a>
+
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info">
+                No activities assigned yet. Contact your household administrator to set up activities.
+            </div>
+        }
+        else
+        {
+            @foreach (var group in Model)
+            {
+                <div class="card mb-4">
+                    <div class="card-header" style="background-color: #007bff; color: white;">
+                        <h5 class="mb-0">@group.Key</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <tbody>
+                                @foreach (var activity in group.Value)
+                                {
+                                    <tr style="@(activity.IsCompleted ? "background-color: #d4edda;" : "")">
+                                        <td>
+                                            <h6>
+                                                @activity.ActivityName
+                                                @if (activity.IsCompleted)
+                                                {
+                                                    <span class="badge badge-success">✓ Completed</span>
+                                                }
+                                            </h6>
+                                            <small class="text-muted">@activity.Description</small>
+                                            @if (activity.EstimatedMinutes > 0)
+                                            {
+                                                <br />
+                                                <small class="text-info">~@activity.EstimatedMinutes minutes</small>
+                                            }
+                                        </td>
+                                        <td style="width: 150px; text-align: right;">
+                                            @if (!activity.IsCompleted)
+                                            {
+                                                <a asp-controller="Activity" asp-action="MarkAsCompletedGet"
+                                                    asp-route-contentItemId="@activity.ContentItemId" class="btn btn-success btn-sm"
+                                                    onclick="return confirm('Mark as completed?');">
+                                                    Mark as Done
+                                                </a>
+                                            }
+                                            @if (activity.IsCompleted)
+                                            {
+                                                <form asp-action="Reopen" asp-route-contentItemId="@activity.ContentItemId"
+                                                    method="post" style="display:inline;">
+                                                    <button type="submit" class="btn btn-warning btn-sm">Reopen</button>
+                                                </form>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            }
+        }
+
+        <div class="mt-3">
+            <a asp-controller="Activity" asp-action="History" class="btn btn-secondary">View History</a>
+        </div>
+    </div>
+
+    <footer class="footer mt-5 py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">Roommate Manager &copy; @DateTime.Now.Year</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

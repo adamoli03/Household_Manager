@@ -1,0 +1,11 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  RoommateManager.Module -> D:\GitHub\Orchard CMS\RoommateManager\src\RoommateManager.Module\bin\Debug\net8.0\RoommateManager.Module.dll
+  RoommateManager.Web -> D:\GitHub\Orchard CMS\RoommateManager\RoommateManager.Web\bin\Debug\net8.0\RoommateManager.Web.dll
+  Copying translation files: RoommateManager.Web
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.00

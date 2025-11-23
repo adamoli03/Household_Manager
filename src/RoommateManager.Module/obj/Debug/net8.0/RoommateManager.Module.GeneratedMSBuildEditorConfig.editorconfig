@@ -1,0 +1,63 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = RoommateManager.Module
+build_property.RootNamespace = RoommateManager.Module
+build_property.ProjectDir = D:\GitHub\Orchard CMS\RoommateManager\Roommate_Manager\src\RoommateManager.Module\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\GitHub\Orchard CMS\RoommateManager\Roommate_Manager\src\RoommateManager.Module
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/GitHub/Orchard CMS/RoommateManager/Roommate_Manager/src/RoommateManager.Module/Views/Activity/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdHlcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub/Orchard CMS/RoommateManager/Roommate_Manager/src/RoommateManager.Module/Views/Activity/History.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdHlcSGlzdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub/Orchard CMS/RoommateManager/Roommate_Manager/src/RoommateManager.Module/Views/Activity/MyActivities.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdHlcTXlBY3Rpdml0aWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub/Orchard CMS/RoommateManager/Roommate_Manager/src/RoommateManager.Module/Views/Grocery/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvY2VyeVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub/Orchard CMS/RoommateManager/Roommate_Manager/src/RoommateManager.Module/Views/Grocery/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JvY2VyeVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub/Orchard CMS/RoommateManager/Roommate_Manager/src/RoommateManager.Module/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub/Orchard CMS/RoommateManager/Roommate_Manager/src/RoommateManager.Module/Views/Note/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub/Orchard CMS/RoommateManager/Roommate_Manager/src/RoommateManager.Module/Views/Note/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub/Orchard CMS/RoommateManager/Roommate_Manager/src/RoommateManager.Module/Views/Note/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub/Orchard CMS/RoommateManager/Roommate_Manager/src/RoommateManager.Module/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub/Orchard CMS/RoommateManager/Roommate_Manager/src/RoommateManager.Module/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
