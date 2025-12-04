@@ -1,0 +1,63 @@
+@using OrchardCore.ContentManagement
+@using HouseholdManager.Module.Models
+@model IEnumerable<ContentItem>
+
+@{
+    ViewData["Title"] = "Activities";
+    var currentUserId = ViewData["CurrentUserId"]?.ToString() ?? "";
+
+    // Group activities by room
+    var grouped = Model
+        .Select(item => new { Item = item, Part = item.As<ActivityPart>() })
+        .Where(x => x.Part != null)
+        .GroupBy(x => string.IsNullOrEmpty(x.Part.RoomType) ? "Unassigned" : x.Part.RoomType)
+        .OrderBy(g => g.Key);
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1>Household Activities</h1>
+        <p class="text-muted mb-0">All pending activities grouped by room. Activities assigned to you are highlighted.</p>
+    </div>
+    <a asp-controller="Activity" asp-action="Create" class="btn btn-primary">Create New Activity</a>
+</div>
+
+@if (Model.Any())
+{
+    @foreach (var roomGroup in grouped)
+    {
+        <h3 class="mt-4 mb-3">@roomGroup.Key</h3>
+        <div class="activity-list">
+            @foreach (var activity in roomGroup)
+            {
+                var activityPart = activity.Part;
+                var isAssignedToMe = activityPart.AssignedUserId == currentUserId || activityPart.AssignedUserId == User.Identity?.Name;
+                var cardClass = isAssignedToMe ? "card mb-3 border-primary" : "card mb-3";
+                var badgeClass = isAssignedToMe ? "badge bg-primary" : "badge bg-secondary";
+
+                <div class="@cardClass">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="card-title">@activityPart.Title</h5>
+                            @if (isAssignedToMe)
+                            {
+                                <span class="@badgeClass">Assigned to You</span>
+                            }
+                        </div>
+                        <p class="card-text">@activityPart.Description</p>
+                        <p><strong>Assigned to:</strong> @(string.IsNullOrEmpty(activityPart.AssignedUserId) ? "Unassigned" : activityPart.AssignedUserId)</p>
+                        <form asp-controller="Activity" asp-action="MarkComplete" asp-route-contentItemId="@activity.Item.ContentItemId" method="post" style="display: inline;">
+                            <button type="submit" class="btn btn-success">Mark as Completed</button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+}
+else
+{
+    <p class="alert alert-info">No pending activities. Great job keeping up with household tasks!</p>
+}
+
+<a asp-controller="Activity" asp-action="History" class="btn btn-secondary mt-3">View Activity History</a>

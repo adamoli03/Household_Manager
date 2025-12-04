@@ -1,0 +1,13 @@
+@model HouseholdManager.Module.ViewModels.ActivityPartViewModel
+
+<div class="activity-part">
+    <h3>@Model.Title</h3>
+    <p>@Model.Description</p>
+    <p><strong>Room:</strong> @Model.RoomType</p>
+    <p><strong>Assigned To:</strong> @Model.AssignedUserId</p>
+    <p><strong>Status:</strong> @(Model.IsCompleted ? "Completed" : "Pending")</p>
+    @if (Model.IsCompleted && Model.CompletedDate.HasValue)
+    {
+        <p><strong>Completed:</strong> @Model.CompletedDate.Value.ToString("yyyy-MM-dd HH:mm")</p>
+    }
+</div>

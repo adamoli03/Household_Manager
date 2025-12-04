@@ -1,0 +1,79 @@
+@using OrchardCore.ContentManagement
+@using HouseholdManager.Module.Models
+@model IEnumerable<ContentItem>
+
+@{
+    ViewData["Title"] = "Shared Grocery List";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1>Shared Grocery List</h1>
+        <p class="text-muted mb-0">Manage your household's shared shopping list</p>
+    </div>
+    <a asp-controller="Grocery" asp-action="Create" class="btn btn-primary">Add Item</a>
+</div>
+
+@if (Model.Any())
+{
+    var needed = Model.Where(x => !x.As<GroceryItemPart>().IsPurchased).ToList();
+    var purchased = Model.Where(x => x.As<GroceryItemPart>().IsPurchased).ToList();
+
+    <h3 class="mt-4">Items Needed (@needed.Count)</h3>
+    @if (needed.Any())
+    {
+        <div class="list-group mb-4">
+            @foreach (var item in needed)
+            {
+                var groceryPart = item.As<GroceryItemPart>();
+                if (groceryPart != null)
+                {
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="mb-1">@groceryPart.ItemName</h5>
+                                <small>Quantity: @groceryPart.Quantity</small>
+                            </div>
+                            <form asp-controller="Grocery" asp-action="MarkPurchased" asp-route-contentItemId="@item.ContentItemId" method="post">
+                                <button type="submit" class="btn btn-sm btn-success">Mark as Purchased</button>
+                            </form>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    }
+    else
+    {
+        <p class="alert alert-success">All items have been purchased!</p>
+    }
+
+    @if (purchased.Any())
+    {
+        <h3 class="mt-4">Purchased Items (@purchased.Count)</h3>
+        <div class="list-group">
+            @foreach (var item in purchased)
+            {
+                var groceryPart = item.As<GroceryItemPart>();
+                if (groceryPart != null)
+                {
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="mb-1 text-muted text-decoration-line-through">@groceryPart.ItemName</h5>
+                                <small>Quantity: @groceryPart.Quantity | Purchased by: @groceryPart.PurchasedByUserId on @groceryPart.PurchasedDate?.ToString("yyyy-MM-dd")</small>
+                            </div>
+                            <form asp-controller="Grocery" asp-action="MarkNeeded" asp-route-contentItemId="@item.ContentItemId" method="post">
+                                <button type="submit" class="btn btn-sm btn-warning" title="Mark as needed again">Mark as Needed</button>
+                            </form>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    }
+}
+else
+{
+    <p class="alert alert-info">The grocery list is empty. Click "Add Item" to get started!</p>
+}

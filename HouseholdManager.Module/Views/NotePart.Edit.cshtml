@@ -1,0 +1,15 @@
+@model HouseholdManager.Module.ViewModels.NotePartViewModel
+
+<fieldset class="form-group">
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">Note Title</label>
+        <input asp-for="Title" class="form-control" required />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NoteContent" class="form-label">Content</label>
+        <textarea asp-for="NoteContent" class="form-control" rows="5"></textarea>
+        <span asp-validation-for="NoteContent" class="text-danger"></span>
+    </div>
+</fieldset>

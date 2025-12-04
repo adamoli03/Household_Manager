@@ -1,0 +1,100 @@
+{
+  "Version": 1,
+  "Hash": "BirKiFagGx9Y6eZnNqiiWjUsc0ZNskpvgW5D1ugMYyg=",
+  "Source": "HouseholdManager.Web",
+  "BasePath": "_content/HouseholdManager.Web",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "D:\\GitHub\\Orchard CMS\\HouseholdManager\\Clean solution\\HouseholdManager.Module\\HouseholdManager.Module.csproj",
+      "Version": 2,
+      "Source": "HouseholdManager.Module",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    },
+    {
+      "Identity": "D:\\GitHub\\Orchard CMS\\HouseholdManager\\Clean solution\\HouseholdManager.Theme\\HouseholdManager.Theme.csproj",
+      "Version": 2,
+      "Source": "HouseholdManager.Theme",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [
+    {
+      "Name": "HouseholdManager.Web\\wwwroot",
+      "Source": "HouseholdManager.Web",
+      "ContentRoot": "D:\\GitHub\\Orchard CMS\\HouseholdManager\\Clean solution\\HouseholdManager.Web\\wwwroot\\",
+      "BasePath": "_content/HouseholdManager.Web",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\GitHub\\Orchard CMS\\HouseholdManager\\Clean solution\\HouseholdManager.Web\\wwwroot\\.placeholder",
+      "SourceId": "HouseholdManager.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\Orchard CMS\\HouseholdManager\\Clean solution\\HouseholdManager.Web\\wwwroot\\",
+      "BasePath": "_content/HouseholdManager.Web",
+      "RelativePath": ".placeholder",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\.placeholder"
+    },
+    {
+      "Identity": "D:\\GitHub\\Orchard CMS\\HouseholdManager\\Clean solution\\HouseholdManager.Web\\wwwroot\\Default\\is-cache\\9\\3\\a\\8\\3\\5\\f\\f\\d\\1\\4\\7\\93a835ffd147.jpg",
+      "SourceId": "HouseholdManager.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\Orchard CMS\\HouseholdManager\\Clean solution\\HouseholdManager.Web\\wwwroot\\",
+      "BasePath": "_content/HouseholdManager.Web",
+      "RelativePath": "Default/is-cache/9/3/a/8/3/5/f/f/d/1/4/7/93a835ffd147.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Default\\is-cache\\9\\3\\a\\8\\3\\5\\f\\f\\d\\1\\4\\7\\93a835ffd147.jpg"
+    },
+    {
+      "Identity": "D:\\GitHub\\Orchard CMS\\HouseholdManager\\Clean solution\\HouseholdManager.Web\\wwwroot\\Default\\is-cache\\9\\3\\a\\8\\3\\5\\f\\f\\d\\1\\4\\7\\93a835ffd147.meta",
+      "SourceId": "HouseholdManager.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\GitHub\\Orchard CMS\\HouseholdManager\\Clean solution\\HouseholdManager.Web\\wwwroot\\",
+      "BasePath": "_content/HouseholdManager.Web",
+      "RelativePath": "Default/is-cache/9/3/a/8/3/5/f/f/d/1/4/7/93a835ffd147.meta",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Default\\is-cache\\9\\3\\a\\8\\3\\5\\f\\f\\d\\1\\4\\7\\93a835ffd147.meta"
+    }
+  ]
+}

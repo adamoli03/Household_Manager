@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "Create Activity";
+}
+
+<h1>Create New Activity</h1>
+
+<form asp-controller="Activity" asp-action="Create" method="post" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label for="title" class="form-label">Title *</label>
+        <input type="text" class="form-control" id="title" name="title" required placeholder="e.g., Clean the sink">
+        <div class="invalid-feedback">Please provide a title.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="3" placeholder="Detailed description of the activity"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="roomType" class="form-label">Room Type</label>
+        <input type="text" class="form-control" id="roomType" name="roomType" placeholder="e.g., Kitchen, Bathroom, Living Room">
+    </div>
+
+    <div class="mb-3">
+        <label for="assignedUserId" class="form-label">Assigned To (Username)</label>
+        <input type="text" class="form-control" id="assignedUserId" name="assignedUserId" placeholder="e.g., admin">
+        <small class="form-text text-muted">Enter the exact username of the person assigned to this activity</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Activity</button>
+    <a asp-controller="Activity" asp-action="MyActivities" class="btn btn-secondary">Cancel</a>
+</form>
+
+<script>
+    // Bootstrap validation
+    (function() {
+        'use strict';
+        var forms = document.querySelectorAll('.needs-validation');
+        Array.prototype.slice.call(forms).forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>

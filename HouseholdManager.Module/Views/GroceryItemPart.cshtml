@@ -1,0 +1,10 @@
+@model HouseholdManager.Module.ViewModels.GroceryItemPartViewModel
+
+<div class="grocery-item-part">
+    <p><strong>@Model.ItemName</strong> (Qty: @Model.Quantity)</p>
+    <p><strong>Status:</strong> @(Model.IsPurchased ? "Purchased" : "Needed")</p>
+    @if (Model.IsPurchased && Model.PurchasedDate.HasValue)
+    {
+        <p><small>Purchased: @Model.PurchasedDate.Value.ToString("yyyy-MM-dd")</small></p>
+    }
+</div>

@@ -1,0 +1,61 @@
+@using OrchardCore.ContentManagement
+@using HouseholdManager.Module.Models
+@model IEnumerable<ContentItem>
+
+@{
+    ViewData["Title"] = "Activity History";
+}
+
+<h1>Activity History</h1>
+<p class="text-muted">All completed activities. You can reopen any activity if needed.</p>
+
+@if (Model.Any())
+{
+    <div class="activity-history">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Room</th>
+                    <th>Assigned To</th>
+                    <th>Completed By</th>
+                    <th>Completed Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    var activityPart = item.As<ActivityPart>();
+                    if (activityPart != null)
+                    {
+                        <tr>
+                            <td>
+                                <strong>@activityPart.Title</strong>
+                                @if (!string.IsNullOrEmpty(activityPart.Description))
+                                {
+                                    <br /><small class="text-muted">@activityPart.Description</small>
+                                }
+                            </td>
+                            <td>@activityPart.RoomType</td>
+                            <td>@activityPart.AssignedUserId</td>
+                            <td>@activityPart.CompletedByUserId</td>
+                            <td>@activityPart.CompletedDate?.ToString("yyyy-MM-dd HH:mm")</td>
+                            <td>
+                                <form asp-controller="Activity" asp-action="Reopen" asp-route-contentItemId="@item.ContentItemId" method="post" style="display: inline;">
+                                    <button type="submit" class="btn btn-sm btn-warning" title="Mark as not completed">Reopen</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p class="alert alert-info">No completed activities yet.</p>
+}
+
+<a asp-controller="Activity" asp-action="MyActivities" class="btn btn-primary">Back to Activities</a>

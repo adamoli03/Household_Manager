@@ -1,0 +1,97 @@
+@{
+    ViewData["Title"] = "Home";
+    var pendingActivities = (int)(ViewData["PendingActivities"] ?? 0);
+    var completedActivities = (int)(ViewData["CompletedActivities"] ?? 0);
+    var groceryItems = (int)(ViewData["GroceryItems"] ?? 0);
+    var rooms = (int)(ViewData["Rooms"] ?? 0);
+}
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="display-4">Welcome to Household Manager</h1>
+            <p class="lead">Manage your household activities, shopping lists, and more!</p>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Pending Activities</h5>
+                    <p class="display-4">@pendingActivities</p>
+                    <a asp-controller="Activity" asp-action="MyActivities" class="btn btn-light btn-sm">View Activities</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-success">
+                <div class="card-body">
+                    <h5 class="card-title">Completed</h5>
+                    <p class="display-4">@completedActivities</p>
+                    <a asp-controller="Activity" asp-action="History" class="btn btn-light btn-sm">View History</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Grocery Items</h5>
+                    <p class="display-4">@groceryItems</p>
+                    <a asp-controller="Grocery" asp-action="Index" class="btn btn-light btn-sm">View List</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card text-white bg-info">
+                <div class="card-body">
+                    <h5 class="card-title">Rooms</h5>
+                    <p class="display-4">@rooms</p>
+                    <a href="/admin/Contents/ContentItems/Room" class="btn btn-light btn-sm">Manage Rooms</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Quick Actions</h5>
+                </div>
+                <div class="list-group list-group-flush">
+                    <a asp-controller="Activity" asp-action="MyActivities" class="list-group-item list-group-item-action">
+                        View All Activities
+                    </a>
+                    <a asp-controller="Grocery" asp-action="Index" class="list-group-item list-group-item-action">
+                        Shared Grocery List
+                    </a>
+                    <a asp-controller="Note" asp-action="MyNotes" class="list-group-item list-group-item-action">
+                        My Private Notes
+                    </a>
+                    <a asp-controller="Activity" asp-action="History" class="list-group-item list-group-item-action">
+                        Activity History
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>About This App</h5>
+                </div>
+                <div class="card-body">
+                    <p>The Household Manager helps you and your roommates:</p>
+                    <ul>
+                        <li>Track and assign household activities</li>
+                        <li>Maintain a shared grocery shopping list</li>
+                        <li>Keep personal notes</li>
+                        <li>View activity history</li>
+                    </ul>
+                    <p class="text-muted"><small>Use the navigation menu above to access different features.</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

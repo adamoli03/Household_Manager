@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "Add Grocery Item";
+}
+
+<h1>Add Grocery Item</h1>
+
+<form asp-controller="Grocery" asp-action="Create" method="post" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label for="itemName" class="form-label">Item Name *</label>
+        <input type="text" class="form-control" id="itemName" name="itemName" required placeholder="e.g., Milk">
+        <div class="invalid-feedback">Please provide an item name.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="quantity" class="form-label">Quantity *</label>
+        <input type="number" class="form-control" id="quantity" name="quantity" min="1" max="999" value="1" required>
+        <div class="invalid-feedback">Please provide a quantity between 1 and 999.</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Item</button>
+    <a asp-controller="Grocery" asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+<script>
+    // Bootstrap validation
+    (function() {
+        'use strict';
+        var forms = document.querySelectorAll('.needs-validation');
+        Array.prototype.slice.call(forms).forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>
